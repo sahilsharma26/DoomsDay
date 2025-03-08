@@ -1,0 +1,83 @@
+@import '../../mixins.scss';
+
+.header_grid {
+	@include flex(flex, row, center, space-around, 0px);
+	@include widthHeight(100%);
+	z-index: 1;
+	opacity: 1;
+	transition: all 1000ms linear;
+	.logo {
+		padding: 13px;
+	}
+	.options {
+		@include flex(flex, row, center, space-around, 30px);
+		padding: 13px;
+		color: white;
+		text-transform: capitalize;
+		.navLink {
+			color: white;
+			transition: all 200ms linear;
+			text-decoration: none;
+			&:hover {
+				color: var(--pink);
+			}
+		}
+		.search_icon {
+			cursor: pointer;
+			transition: all 200ms linear;
+			&:hover {
+				color: var(--pink);
+			}
+		}
+		.searchBar {
+			@include position(relative, 0, 0);
+			@include flex(flex, row, center, center, 0px);
+			color: white;
+			border-radius: 5px;
+			border: 1px solid gray;
+			padding: 10px;
+			transition: opacity 0.3s, height 0.3s;
+			input {
+				@include NBNO;
+				@include widthHeight(100%);
+				color: white;
+				background: transparent;
+			}
+			.cross_icon {
+				@include widthHeight(20px, 100%);
+				color: white;
+				font-size: 20px;
+				cursor: pointer;
+				transition: all 200ms linear;
+				&:hover {
+					color: var(--pink);
+				}
+			}
+		}
+	}
+	.mobileView {
+		@include flex(flex, column, center, center, 0px);
+		@include position(absolute, 69px, 0px);
+		@include widthHeight(100%);
+		background-color: rgba(0, 0, 0, 0.3);
+
+		ul {
+			@include widthHeight(100%);
+			list-style: none;
+			li {
+				@include widthHeight(100%);
+				padding: 15px;
+				border-bottom: 1px solid gray;
+			}
+		}
+	}
+	.icon {
+		@include widthHeight(20px, 100%);
+		color: white;
+		cursor: pointer;
+		transition: all 200ms linear;
+		&:hover {
+			color: var(--pink);
+		}
+	}
+}
