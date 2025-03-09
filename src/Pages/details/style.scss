@@ -1,0 +1,277 @@
+@import '../../mixins.scss';
+
+.details {
+	@include widthHeight(100%);
+	@include position(relative);
+	@include flex(flex, column, flex-start, center, 50px);
+	@include sm {
+		@include widthHeight(100%);
+	}
+	margin: auto;
+}
+.detailsBanner {
+	@include flex(flex, column, center, center, 20px);
+	@include widthHeight(95%);
+	margin: 0% 0 0 0;
+	@include md {
+		@include widthHeight(75%);
+		@include flex(flex, row, center, center, 60px);
+		margin: 2% auto 0 auto;
+	}
+
+	.backdrop_img {
+		opacity: 0.2;
+		@include widthHeight(100%, 85vh);
+		@include position(absolute, 0, 0);
+		img {
+			object-fit: cover;
+			object-position: center;
+			@include widthHeight(100%, 100%);
+		}
+	}
+	.img {
+		@include widthHeight(100%, 550px);
+		img {
+			@include widthHeight(100%, 550px);
+			border-radius: 10px;
+		}
+		@include sm {
+			@include widthHeight(100%, 550px);
+		}
+		@include md {
+			@include widthHeight(50%, 550px);
+		}
+	}
+	.details {
+		@include widthHeight(100%);
+		@include flex(flex, column, flex-start, center, 15px);
+		.title {
+			font-size: 30px;
+			color: white;
+		}
+		.tagline {
+			font-size: 20px;
+			color: gray;
+		}
+		.tags {
+			@include flex(flex, row, center, auto, 0px);
+			flex-wrap: wrap;
+			p {
+				background-color: var(--pink);
+				color: white;
+				padding: 5px 10px;
+				border-radius: 5px;
+				scale: 0.86;
+			}
+		}
+		.icon {
+			@include flex(flex, row, center, auto, 20px);
+			color: white;
+			text-transform: capitalize;
+
+			.rating {
+				min-width: 70px;
+				max-width: 90px;
+			}
+			.playbtn {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				cursor: pointer;
+				svg {
+					width: 60px;
+					@include md {
+						width: 80px;
+					}
+				}
+				.text {
+					font-size: 20px;
+					transition: all 0.7s ease-in-out;
+				}
+				.triangle {
+					stroke-dasharray: 240;
+					stroke-dashoffset: 480;
+					stroke: white;
+					transform: translateY(0);
+					transition: all 0.7s ease-in-out;
+				}
+				.circle {
+					stroke: white;
+					stroke-dasharray: 650;
+					stroke-dashoffset: 1300;
+					transition: all 0.5s ease-in-out;
+				}
+				&:hover {
+					.text {
+						color: var(--pink);
+					}
+					.triangle {
+						stroke-dashoffset: 0;
+						opacity: 1;
+						stroke: var(--pink);
+						animation: trailorPlay 0.7s ease-in-out;
+					}
+					.circle {
+						stroke-dashoffset: 0;
+						stroke: var(--pink);
+					}
+				}
+
+				p {
+					font-size: 24px;
+				}
+			}
+		}
+	}
+	.desc {
+		@include flex(flex, column, auto, center, 10px);
+		color: white;
+		.title {
+			font-size: 28px;
+		}
+		.overview {
+			line-height: 23px;
+			font-size: 0.95rem;
+			width: 85%;
+		}
+	}
+	.info {
+		color: white;
+		width: 100%;
+		@include flex(flex, column, auto, center, 10px);
+		.box1 {
+			width: 100%;
+			padding: 15px 0;
+			@include flex(flex, row, center, space-between, 20px);
+			@include md {
+				@include flex(flex, row, center, start, 20px);
+			}
+			border-bottom: 0.001rem solid gray;
+			.container {
+				color: white;
+				@include flex(flex, column, center, auto, 10px);
+				font-weight: 600;
+				@include md {
+					@include flex(flex, row, center, auto, 10px);
+				}
+				span.value {
+					color: gray;
+				}
+			}
+		}
+	}
+}
+
+.top_cast {
+	@include widthHeight(75%);
+	font-size: 25px;
+	margin: auto;
+	color: white;
+	@include flex(flex, column, auto, center, 30px);
+}
+
+.cast_card {
+	width: 100%;
+	@include flex(flex, column, center, center, 20px);
+	.img {
+		border-radius: 100%;
+		@include widthHeight(100%, auto);
+		aspect-ratio: 1/1;
+		object-fit: cover;
+		object-position: top;
+	}
+	.cast_info {
+		font-weight: 600;
+		@include flex(flex, column, center, center, 4px);
+		font-size: 20px;
+		text-align: center;
+		p:last-child {
+			font-weight: 100;
+			color: gray;
+			font-size: 16px;
+		}
+	}
+}
+
+.recommend {
+	@include widthHeight(75%);
+	font-size: 25px;
+	margin: auto;
+	color: white;
+	@include flex(flex, column, auto, center, 30px);
+	text-transform: capitalize;
+}
+
+.video_section {
+	@include flex(flex, column, auto, center, 20px);
+	@include widthHeight(75%);
+	margin: auto;
+	color: white;
+	font-size: 25px;
+	text-transform: capitalize;
+}
+
+.video_grid {
+	@include widthHeight(100%);
+	@include flex(flex, column, auto, center, 20px);
+	.video {
+		@include position(relative);
+		@include widthHeight(100%, 150px);
+		img {
+			@include widthHeight(100%, 100%);
+			object-fit: cover;
+			object-position: center;
+			border-radius: 10px;
+			transition: all 200ms linear;
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+		.playbtn {
+			@include position(absolute, 0%, 0%);
+			@include flex(flex, row, center, center, 0px);
+			@include widthHeight(100%, 100%);
+			cursor: pointer;
+			svg {
+				width: 60px;
+				@include md {
+					width: 50px;
+				}
+			}
+
+			.triangle {
+				stroke-dasharray: 240;
+				stroke-dashoffset: 480;
+				stroke: white;
+				transform: translateY(0);
+				transition: all 0.7s ease-in-out;
+			}
+			.circle {
+				stroke: white;
+				stroke-dasharray: 650;
+				stroke-dashoffset: 1300;
+				transition: all 0.5s ease-in-out;
+			}
+			&:hover {
+				.triangle {
+					stroke-dashoffset: 0;
+					opacity: 1;
+					stroke: var(--pink);
+					animation: trailorPlay 0.7s ease-in-out;
+				}
+				.circle {
+					stroke-dashoffset: 0;
+					stroke: var(--pink);
+				}
+			}
+		}
+		&:hover img {
+			opacity: 0.7;
+		}
+	}
+	.title {
+		color: white;
+		line-height: 22px;
+		font-size: 16px;
+	}
+}

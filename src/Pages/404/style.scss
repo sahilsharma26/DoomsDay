@@ -1,0 +1,32 @@
+@import '../../mixins.scss';
+
+.error {
+	@include flex(flex, row, center, center, 20px);
+	@include widthHeight(100vw, 400px);
+	margin: 70px 0 0 0;
+	@include position(relative, 0, 0);
+	background-repeat: no-repeat;
+	background-origin: top;
+	background-attachment: fixed;
+	background-size: 100vw 500px;
+	background-blend-mode: lighten;
+	background-position: top;
+	background-image: url('https://m.media-amazon.com/images/M/MV5BMTcwMTM4MTEwNF5BMl5BanBnXkFtZTgwMzkyOTA0NjE@._V1_.jpg');
+
+	img {
+		@include widthHeight(100vw, 100vh);
+		z-index: -1;
+		object-fit: cover;
+		// object-position: -100px -900px;
+		opacity: 1;
+	}
+	button {
+		background-color: var(--pink);
+		color: white;
+		padding: 20px 40px;
+		font-weight: bolder;
+		@include NBNO;
+		cursor: pointer;
+		border-radius: 10px;
+	}
+}

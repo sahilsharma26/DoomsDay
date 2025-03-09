@@ -1,0 +1,49 @@
+@import '../../mixins.scss';
+.search_grid {
+	@include flex(flex, column, center, center, 30px);
+	@include widthHeight(75%);
+	margin: auto;
+	padding-top: 2%;
+	.heading {
+		@include widthHeight(100%);
+		font-size: 30px;
+		color: white;
+		text-align: center;
+		font-weight: 600;
+	}
+	.search_results {
+		@include flex(flex, row, center, center, 30px);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+	}
+}
+
+.search_card {
+	@include flex(flex, column, auto, center, 20px);
+	@include widthHeight(240px);
+	cursor: pointer;
+	img {
+		border-radius: 20px;
+		@include widthHeight(100%, 340px);
+		transition: all 200ms linear;
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+	.info {
+		@include flex(flex, column, auto, center, 10px);
+		.title {
+			color: #fff;
+			font-size: 20px;
+			@include widthHeight(100%);
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.date {
+			color: gray;
+			font-size: 16px;
+		}
+	}
+}

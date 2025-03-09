@@ -1,0 +1,200 @@
+@import '../../mixins.scss';
+.hero_banner {
+	@include widthHeight(100%, 450px);
+	@include flex(flex, row, center, center, 0px);
+	@include position(relative);
+	background-color: var(--black);
+	@include md {
+		height: 700px;
+	}
+	.backdrop_img {
+		@include widthHeight(100%, 100%);
+		@include position(absolute, 0, 0);
+		overflow: hidden;
+		opacity: 0.5;
+		.lazy-load-image-background {
+			@include widthHeight(100%, 100%);
+			img {
+				@include widthHeight(100%, 100%);
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+	.opacity_layer {
+		@include position(absolute, auto, auto, auto, 0);
+		@include widthHeight(100%, 250px);
+		background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
+	}
+	.heroBannerContent {
+		@include position(relative);
+		@include flex(flex, column, center, center, 10px);
+		.title {
+			color: white;
+			font-size: 50px;
+			font-weight: 700;
+			@include sm {
+				font-size: 60px;
+			}
+			@include md {
+				font-size: 70px;
+				width: max-content;
+			}
+			@include lg {
+				font-size: 90px;
+			}
+		}
+		.subtitle {
+			color: white;
+			text-align: center;
+			font-size: 16px;
+			@include sm {
+				font-size: 20px;
+			}
+			@include lg {
+				font-size: 25px;
+			}
+		}
+		.search_bar {
+			@include flex(flex, row, center, center, 0px);
+			@include widthHeight(100%);
+			margin-top: 4%;
+			input {
+				@include NBNO;
+				@include widthHeight(100%, 50px);
+				padding: 0 30px;
+				border-radius: 40px 0 0 40px;
+				font-size: 16px;
+				color: black;
+			}
+			button {
+				@include widthHeight(25%, 50px);
+				@include NBNO;
+				background: var(--gradient);
+				border-radius: 0 40px 40px 0;
+				color: white;
+				font-size: 15px;
+				text-align: center;
+				cursor: pointer;
+				font-weight: bolder;
+				&:hover {
+					filter: brightness(1.2);
+				}
+			}
+		}
+	}
+}
+.content_grid {
+	@include flex(flex, column, auto, center, 30px);
+	@include widthHeight(70%);
+	margin: auto;
+	color: white;
+	.content {
+		@include flex(flex, column, center, space-between, 20px);
+		p {
+			font-size: 1.3rem;
+			text-transform: capitalize;
+			@include sm {
+				font-size: 1.6rem;
+			}
+		}
+		@include sm {
+			@include flex(flex, row, center, space-between, 0px);
+		}
+	}
+	.carousel {
+	}
+}
+.tabs {
+	@include flex(flex, row, center, center, 0px);
+	@include position(relative);
+	background-color: white;
+	padding: 3px;
+	border-radius: 20px;
+	p {
+		@include widthHeight(100%);
+		font-size: 0.9rem !important;
+		border-radius: 20px;
+		padding: 7px 40px;
+		z-index: 1;
+		transition: all 200ms ease-in-out;
+		cursor: pointer;
+		text-transform: capitalize;
+	}
+	.slider {
+		@include position(absolute, 8%, 1%);
+		@include widthHeight(50%, 29px);
+		background: var(--gradient);
+		z-index: 0;
+		transition: all 200ms ease-in-out;
+	}
+}
+
+.poster_grid {
+	@include widthHeight(100%);
+	@include position(relative);
+	@include flex(flex, column, auto, center, 40px);
+	transition: all 300ms ease-in;
+	cursor: pointer;
+	&:hover {
+		scale: 1.05;
+	}
+	.poster {
+		@include position(relative);
+		img {
+			@include widthHeight(100%, 400px);
+			border-radius: 10px;
+		}
+		.desc {
+			@include widthHeight(90%, 40px);
+			@include position(absolute, auto, 8px, auto, 0px);
+			@include flex(flex, row, start, space-between, 5px);
+			margin: auto;
+			color: #04152d;
+			transform: translateY(50%);
+			.rating {
+				min-width: 50px;
+				max-width: 55px;
+			}
+			.tags {
+				@include flex(flex, row, center, end, 5px);
+				p {
+					font-size: 13px;
+					padding: 1px 6px;
+					background-color: var(--pink);
+					color: white;
+					font-weight: normal;
+					border-radius: 2px;
+					text-transform: capitalize;
+					scale: 0.9;
+				}
+			}
+		}
+	}
+	.details {
+		@include flex(flex, column, start, center, 8px);
+		font-size: 15px;
+		text-transform: capitalize;
+
+		.title {
+			@include widthHeight(100%);
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.date {
+			font-size: 14px;
+			color: #707a88;
+		}
+	}
+}
+
+.swiper {
+	@include widthHeight(100%, 100%);
+}
+
+.swiper-slide img {
+	@include widthHeight(100%, 100%);
+	display: block;
+	object-fit: cover;
+}
